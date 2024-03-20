@@ -1,113 +1,150 @@
-import Image from "next/image";
+'use client'
+
+import { Bebas_Neue, Fasthand, Poppins } from "next/font/google";
+import { ArrowDown, MenuIcon } from "./lib/icons";
+import { useEffect, useState } from "react";
+import ReactFullpage from '@fullpage/react-fullpage';
+
+import { Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+import Link from "next/link";
+
+const bebasNeue = Bebas_Neue({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400'],
+});
+
+const fastHand = Fasthand({
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap'
+});
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap'
+});
+
+type Credits = {
+  enabled?: boolean;
+  label?: string;
+  position?: "left" | "right";
+};
+
 
 export default function Home() {
+  const credits: Credits = {
+    enabled: true,
+    label: "powered by fullPage.js",
+  };
+
+  const [text, setText] = useState<string>('');
+  const fullText = 'BY  EUNWOO CHOI';
+  let idx: number = 0;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setText((prev) => prev + fullText.charAt(idx));
+      idx++;
+      if (idx >= fullText.length) {
+        clearInterval(interval);
+      }
+    }, 150);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const swiper = useSwiper();
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <ReactFullpage
+			
+      //fullpage options
+			licenseKey = {"OPEN-SOURCE-GPLV3-LICENSE"}
+			credits={credits}
+			scrollingSpeed={1000}
+      onLeave={() => {
+        
+      }}
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+			render={({ state, fullpageApi }) => {
+				return (
+					<ReactFullpage.Wrapper>
+            
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+						<div className="section">
+							<div className={`${bebasNeue.className} flex flex-col justify-between h-screen bg-backgroundColor p-10 xl:px-32`}>
+								<div className="flex justify-between items-center">
+									<div className="text-2xl">Frontend Portfolio of Eunwoo Choi</div>
+									<MenuIcon/>
+								</div>
+								<div className="flex justify-center relative">
+									<div className={`${fastHand.className} absolute text-7xl text-homeRed`}>frontend</div>
+									<div className="text-vxl">PORTFOLIO</div>
+									<div className="absolute bottom-0 w-80 bg-darkbg h-12 border-black rounded-lg border-4 text-xl flex items-center justify-center font-thin">{text}</div>
+								</div>
+								<div className="flex justify-between">
+									<div className={`${poppins.className} w-2/5`}>www.portolio.com</div>
+                  <div className="w-full flex justify-center items-center hover:cursor-pointer" onClick={() => fullpageApi.moveSectionDown()}>
+                    <ArrowDown></ArrowDown>
+                  </div>
+									<div className="w-2/5 text-right">오른쪽 하단</div>
+								</div>
+							</div>
+						</div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+						<div className="section bg-backgroundColor">
+							<div className={`${bebasNeue.className} flex flex-col justify-between items-center h-screen px-10 py-24 xl:px-32 max-h-[46rem]`}>
+                <div className="flex justify-center relative">
+									<div className={`${fastHand.className} absolute text-7xl text-homeRed`}>table of</div>
+									<div className="text-vxl">CONTENT</div>
+								</div>
+                <div className={`${poppins.className} w-4/6 text-center`}>Presentation are communication tools that can be used as demontrations, lectures, reports, and more. it is mostly presented before an audience.</div>
+                <hr className="w-full border-black my-10 border-2" />
+                <div className="grid grid-cols-3 gap-8 w-10/12">
+                  <div className="bg-homeRed h-12 rounded-lg border-black border-2 flex items-center justify-center text-2xl text-backgroundColor">
+                    <Link href='/about-me' className="w-full text-center">ABOUT ME</Link>
+                  </div>
+                  <div className="bg-homeGreen rounded-lg border-black border-2 flex items-center justify-center text-2xl text-backgroundColor">VISION MISSION</div>
+                  <div className="bg-homeYellow rounded-lg border-black border-2 flex items-center justify-center text-2xl">PERSONAL SKILLS</div>
+                  <div className="bg-homeYellow h-12 rounded-lg border-black border-2 flex items-center justify-center text-2xl">EDUCATION EXPERIENCE</div>
+                  <div className="bg-homeRed rounded-lg border-black border-2 flex items-center justify-center text-2xl text-backgroundColor">
+                    <Link href='/projects' className="w-full text-center">PROJECTS</Link>
+                  </div>
+                  <div className="bg-homeGreen rounded-lg border-black border-2 flex items-center justify-center text-2xl text-backgroundColor">CONTACT</div>
+                </div>
+              </div>
+						</div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+            <div className="section">
+              <Swiper
+                // install Swiper modules
+                modules={[Pagination]}
+                spaceBetween={0}
+                slidesPerView={1}
+                navigation
+                pagination={{ clickable: true }}
+                className="h-screen"
+              >
+                <SwiperSlide className="bg-backgroundColor">
+                  {swiper && (
+                    <button onClick={() => swiper.slideNext()}>Slide to the next slide</button>
+                  )}
+                </SwiperSlide>
+                <SwiperSlide className="bg-backgroundColor">Slide 2</SwiperSlide>
+                <SwiperSlide className="bg-backgroundColor">Slide 3</SwiperSlide>
+                <SwiperSlide className="bg-backgroundColor">Slide 4</SwiperSlide>
+              </Swiper>
+            </div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+					</ReactFullpage.Wrapper>
+				);
+			}}
+		/>
   );
 }
