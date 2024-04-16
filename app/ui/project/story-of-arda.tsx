@@ -4,7 +4,7 @@ import { Bebas_Neue, Noto_Sans_KR, Fasthand } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
 
-import {Accordion, AccordionItem, Button, Code, Divider} from "@nextui-org/react";
+import {Accordion, AccordionItem, Code, Divider} from "@nextui-org/react";
 import {useDisclosure} from "@nextui-org/react";
 
 import { Pagination } from 'swiper/modules';
@@ -45,6 +45,7 @@ export default function StoryOfArda() {
       pagination={{ clickable: true }}
       className="h-screen"
     >
+      {/* 첫 번쨰 슬라이드 */}
       <SwiperSlide className="bg-backgroundColor">
         <div className={`${bebasNeue.className} h-screen bg-backgroundColor px-10 px-10 py-16 xl:px-32 flex flex-col`}>
           <div className="flex flex-row justify-between h-20 flex-none">
@@ -61,6 +62,10 @@ export default function StoryOfArda() {
 
 지도위의 궁금한 지역을 클릭하거나 검색창으로 지역을 검색하면 지역의 이름, 지역에 대한 간략한 설명이 나타납니다. 또한 자세한 설명을 보는 페이지에서는 내용을 수정하고 이미지를 추가할 수 있는 위키피디아 기능이 있는 "반지의 제왕 위키피디아" 입니다!!
               </p>
+              <a 
+                href="https://story-of-arda.vercel.app/home" 
+                className="text-3xl text-homeGreen"
+              >https://story-of-arda.vercel.app/home</a>
             </div>
             {/* 프로젝트 소개 이미지 2개 들어갈 곳 */}
             <div className="w-full h-5/6 flex flex-initial justify-center items-center bg-homeRed border-4 border-black rounded-xl">
@@ -77,7 +82,8 @@ export default function StoryOfArda() {
 
         </div>
       </SwiperSlide>
-
+      
+      {/* 두 번쨰 슬라이드 */}
       <SwiperSlide className="bg-backgroundColor">
         <div className={`${bebasNeue.className} h-screen bg-backgroundColor px-10 px-10 py-16 xl:px-32 flex flex-col`}>
           <div className="flex flex-row justify-between h-8 flex-none mb-12 h-md:mb-24">
@@ -131,6 +137,7 @@ export default function StoryOfArda() {
         </div>
       </SwiperSlide>
 
+      {/* 세 번쨰 슬라이드 */}
       <SwiperSlide className="bg-backgroundColor">
         <div className={`${bebasNeue.className} h-screen bg-backgroundColo px-10 py-16 xl:px-32 flex flex-col`}>
           <div className="flex flex-row justify-between h-6 flex-none h-md:mb-12">
@@ -145,9 +152,11 @@ export default function StoryOfArda() {
 
           <div className="flex flex-row gap-20 overflow-x-auto h-80">
 
+            {/* 첫 번째 카드 */}
             <div className="w-80 h-64 bg-darkbg flex-shrink-0 border-4 border-black rounded-xl relative">
-            <Modals project={'story of arda'} page={'home'}></Modals>
-              <div className="absolute w-60 h-12 bg-homeRed left-9 -bottom-6 rounded-lg text-backgroundColor text-xl border-4 border-black flex items-center justify-center">지도 화면</div>
+              <div className="absolute w-60 h-12 bg-homeRed left-9 -bottom-6 rounded-lg text-backgroundColor text-xl border-4 border-black flex items-center justify-center">
+                <Modals project={'story of arda'} page={'지도화면'}></Modals>
+              </div>
               <div className="w-72 h-40 absolute top-8 left-3">
                 <Image
                   src='/story-of-arda-main.png'
@@ -158,6 +167,7 @@ export default function StoryOfArda() {
               </div>
             </div>
 
+            {/* 두 번째 카드 */}
             <div className="w-80 h-64 bg-darkbg flex-shrink-0 border-4 border-black rounded-xl relative">
               <div className="absolute w-60 h-12 bg-homeYellow left-10 -bottom-6 rounded-lg text-black text-xl border-4 border-black flex items-center justify-center">디테일 화면</div>
               <div className="w-72 h-40 absolute top-8 left-3">
@@ -177,6 +187,7 @@ export default function StoryOfArda() {
         </div>
       </SwiperSlide>
 
+      {/* 네 번쨰 슬라이드 */}
       <SwiperSlide className="bg-backgroundColor">
         <div className={`${bebasNeue.className} h-screen bg-backgroundColor px-10 px-10 py-16 xl:px-32 flex flex-col`}>
           <div className="flex flex-row justify-between h-8 flex-none mb-2 h-md:mb-8">

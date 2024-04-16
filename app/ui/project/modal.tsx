@@ -5,7 +5,7 @@ export default function Modals({project, page}: {project: string, page: string})
   
   return (
     <>
-      <Button onPress={onOpen}>See Details</Button>
+      <Button onPress={onOpen} variant="light" className="text-xl">{page}</Button>
       <Modal
         isOpen={isOpen}
         onOpenChange={onOpenChange}

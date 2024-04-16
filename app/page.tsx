@@ -4,6 +4,7 @@ import { Bebas_Neue, Fasthand, Poppins } from "next/font/google";
 import { ArrowDown, MenuIcon } from "./lib/icons";
 import { useEffect, useState } from "react";
 import ReactFullpage from '@fullpage/react-fullpage';
+import { Popover, PopoverTrigger, PopoverContent, ScrollShadow, Image, Card, CardHeader, CardBody, Button, Divider } from "@nextui-org/react";
 
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
@@ -107,16 +108,52 @@ export default function Home() {
                 <div className={`${poppins.className} w-4/6 text-center`}>Presentation are communication tools that can be used as demontrations, lectures, reports, and more. it is mostly presented before an audience.</div>
                 <hr className="w-full border-black my-10 border-2" />
                 <div className="grid grid-cols-3 gap-8 w-10/12">
+                  {/* about me */}
                   <div className="bg-homeRed h-12 rounded-lg border-black border-2 flex items-center justify-center text-2xl text-backgroundColor">
                     <Link href='/about-me' className="w-full text-center">ABOUT ME</Link>
                   </div>
+                  {/* vision mission */}
                   <div className="bg-homeGreen rounded-lg border-black border-2 flex items-center justify-center text-2xl text-backgroundColor">VISION MISSION</div>
+                  {/* skills */}
                   <div className="bg-homeYellow rounded-lg border-black border-2 flex items-center justify-center text-2xl">PERSONAL SKILLS</div>
+                  {/* experience */}
                   <div className="bg-homeYellow h-12 rounded-lg border-black border-2 flex items-center justify-center text-2xl">EDUCATION EXPERIENCE</div>
+                  {/* projects */}
                   <div className="bg-homeRed rounded-lg border-black border-2 flex items-center justify-center text-2xl text-backgroundColor">
                     <Link href='/projects' className="w-full text-center">PROJECTS</Link>
                   </div>
-                  <div className="bg-homeGreen rounded-lg border-black border-2 flex items-center justify-center text-2xl text-backgroundColor">CONTACT</div>
+                  {/* contact */}
+                  <Popover
+                    className="inline-block" showArrow backdrop="opaque"
+                    classNames={{
+                      base: [
+                        // arrow color
+                        "before:bg-homeYellow"
+                      ],
+                      content: [
+                        "py-0 px-0 border-2 border-black",
+                        "bg-darkbg",
+                      ],
+                    }}
+                  >
+                    <PopoverTrigger>
+                      <div className="bg-homeGreen rounded-lg border-black border-2 flex items-center justify-center text-2xl text-backgroundColor">CONTACT</div>
+                    </PopoverTrigger>
+                    <PopoverContent>
+                      <Card  className={`py-4 w-[400px] bg-backgroundColor`}>
+                        <CardHeader>
+                          <p className={`${bebasNeue.className} text-3xl`}>Contact Information</p>
+                        </CardHeader>
+                        <Divider/>
+                        <CardBody className="text-lg">
+                          <p className="mb-2">Email: vvchldmsdn@naver.com</p>
+                          <p className="mb-2">github: https://github.com/vvchldmsdn</p>
+                          <p className="mb-2">Email: vvchldmsdn@naver.com</p>
+                        </CardBody>
+                      </Card>
+                    </PopoverContent>
+                  </Popover>
+                  {/* <div className="bg-homeGreen rounded-lg border-black border-2 flex items-center justify-center text-2xl text-backgroundColor">CONTACT</div> */}
                 </div>
               </div>
 						</div>
