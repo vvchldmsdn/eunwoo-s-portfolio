@@ -212,7 +212,7 @@ export default function ApcSystem() {
             {/* 첫 번째 */}
             <div className="w-1/4">
               <h1 className={`${dohyun.className} text-5xl text-homeRed font-black mb-12`}>기업 데이터 보안</h1>
-              <p className={`${dohyun.className} text-base font-bold mb-12`}>{"지도 화면을 구현할 때 Next.js Image태그의 '레이아웃 쉬프트 방지', '자동 레이지 로딩' 등의 장점을 이용하기 위해 Image태그를 사용하였습니다. 근데 img태그를 사용할 때에 비해 현저하게 낮은 화질을 보여주었고 priority 속성을 100으로 맞춰도 조금 나아지는 정도였습니다."}</p>
+              <p className={`${dohyun.className} text-base font-bold mb-12`}>지도 화면을 구현할 때 Next.js Image태그의 &apos;레이아웃 쉬프트 방지&apos;, &apos;자동 레이지 로딩&apos; 등의 장점을 이용하기 위해 Image태그를 사용하였습니다. 근데 img태그를 사용할 때에 비해 현저하게 낮은 화질을 보여주었고 priority 속성을 100으로 맞춰도 조금 나아지는 정도였습니다.</p>
               <Link
                 href="https://www.notion.so/img-vs-Image-3ad44470daf240f3a14238431692157a?pvs=4"
               >
