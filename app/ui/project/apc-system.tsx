@@ -212,7 +212,7 @@ export default function ApcSystem() {
             {/* 첫 번째 */}
             <div className="w-1/4">
               <h1 className={`${dohyun.className} text-5xl text-homeRed font-black mb-12`}>기업 데이터 보안</h1>
-              <p className={`${dohyun.className} text-base font-bold mb-12`}>지도 화면을 구현할 때 Next.js Image태그의 &apos;레이아웃 쉬프트 방지&apos;, &apos;자동 레이지 로딩&apos; 등의 장점을 이용하기 위해 Image태그를 사용하였습니다. 근데 img태그를 사용할 때에 비해 현저하게 낮은 화질을 보여주었고 priority 속성을 100으로 맞춰도 조금 나아지는 정도였습니다.</p>
+              <p className={`${dohyun.className} text-base font-bold mb-12`}>{"지도 화면을 구현할 때 Next.js Image태그의 '레이아웃 쉬프트 방지', '자동 레이지 로딩' 등의 장점을 이용하기 위해 Image태그를 사용하였습니다. 근데 img태그를 사용할 때에 비해 현저하게 낮은 화질을 보여주었고 priority 속성을 100으로 맞춰도 조금 나아지는 정도였습니다."}</p>
               <Link
                 href="https://www.notion.so/img-vs-Image-3ad44470daf240f3a14238431692157a?pvs=4"
               >
@@ -227,7 +227,7 @@ export default function ApcSystem() {
             {/* 두 번째 */}
             <div className="w-1/4">
               <h1 className="text-5xl text-homeGreen font-black mb-12">Passive Event Listener</h1>
-              <p className={`${poppins.className} text-base font-bold mb-12`}>Full Page UI로 디자인을 하여 한 페이지 내에서 가로 스크롤, 드래그 등의 이벤트를 많이 사용해야 했습니다. 화면 전체가 스크롤 되는 것을 막기 위해 <Code>e.preventdefault()</Code>를 적용하였는데 &apos;Passive Event Listener&apos;때문에 성능이 저하될 수 있다는 경고문이 발생하였습니다.</p>
+              <p className={`${dohyun.className} text-base font-bold mb-12`}>{"Full Page UI로 디자인을 하여 한 페이지 내에서 가로 스크롤, 드래그 등의 이벤트를 많이 사용해야 했습니다. 화면 전체가 스크롤 되는 것을 막기 위해"} <Code>e.preventdefault()</Code>{"를 적용하였는데 'Passive Event Listener' 때문에 성능이 저하될 수 있다는 경고문이 발생하였습니다."}</p>
               <Link
                 href="https://www.notion.so/img-vs-Image-3ad44470daf240f3a14238431692157a?pvs=4"
               >
@@ -242,7 +242,7 @@ export default function ApcSystem() {
             {/* 세 번째 */}
             <div className="w-1/4">
               <h1 className="text-5xl text-homeRed font-black mb-12">While Loop & repaint</h1>
-              <p className={`${poppins.className} text-base font-bold mb-12`}>지도 이미지 위에서 지역을 클릭하거나 검색창에 검색하였을 때 화면 중앙에 해당 지역이 위치하게끔 img태그의 위치를 움지역야했습니다. 처음에는 while문으로 태그의 위치를 점차적으로 변화시키려 했지만 아무런 변화도 일어나지 않았습니다.</p>
+              <p className={`${dohyun.className} text-base font-bold mb-12`}>지도 이미지 위에서 지역을 클릭하거나 검색창에 검색하였을 때 화면 중앙에 해당 지역이 위치하게끔 img태그의 위치를 움지역야했습니다. 처음에는 while문으로 태그의 위치를 점차적으로 변화시키려 했지만 아무런 변화도 일어나지 않았습니다.</p>
               <Link
                 href="https://www.notion.so/While-UI-d398fc00f32f43619f221ca05e7a0508?pvs=4"
               >
