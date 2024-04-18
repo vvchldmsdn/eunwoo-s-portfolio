@@ -105,7 +105,6 @@ export default function Home() {
 									<div className={`${fastHand.className} absolute text-7xl text-homeRed`}>table of</div>
 									<div className="text-vxl">CONTENT</div>
 								</div>
-                <div className={`${poppins.className} w-4/6 text-center`}>Presentation are communication tools that can be used as demontrations, lectures, reports, and more. it is mostly presented before an audience.</div>
                 <hr className="w-full border-black my-10 border-2" />
                 <div className="grid grid-cols-3 gap-8 w-10/12">
                   {/* about me */}
@@ -137,7 +136,7 @@ export default function Home() {
                     }}
                   >
                     <PopoverTrigger>
-                      <div className="bg-homeGreen rounded-lg border-black border-2 flex items-center justify-center text-2xl text-backgroundColor">CONTACT</div>
+                      <div className="bg-homeGreen rounded-lg border-black border-2 flex items-center justify-center text-2xl text-backgroundColor cursor-pointer">CONTACT</div>
                     </PopoverTrigger>
                     <PopoverContent>
                       <Card  className={`py-4 w-[400px] bg-backgroundColor`}>
@@ -148,7 +147,6 @@ export default function Home() {
                         <CardBody className="text-lg">
                           <p className="mb-2">Email: vvchldmsdn@naver.com</p>
                           <p className="mb-2">github: https://github.com/vvchldmsdn</p>
-                          <p className="mb-2">Email: vvchldmsdn@naver.com</p>
                         </CardBody>
                       </Card>
                     </PopoverContent>

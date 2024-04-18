@@ -1,11 +1,30 @@
-import { useDisclosure, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button } from "@nextui-org/react"
+import { useDisclosure, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button } from "@nextui-org/react";
+import { Do_Hyeon } from "next/font/google";
 
-export default function Modals({project, page}: {project: string, page: string}) {
+const dohyun = Do_Hyeon({
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap'
+});
+
+export default function Modals({project, page, backgroundColor}: {project: string, page: string, backgroundColor: string}) {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
+
+  let buttonTextColor;
+  switch (backgroundColor) {
+    case 'red':
+      buttonTextColor = 'text-backgroundColor'
+      break;
+    case 'green':
+      buttonTextColor = 'text-backgroundColor'
+      break;
+    default:
+      buttonTextColor = 'text-black'
+  }
   
   return (
     <>
-      <Button onPress={onOpen} variant="light" className="text-xl">{page}</Button>
+      <Button onPress={onOpen} variant="light" className={`${buttonTextColor} ${dohyun.className} text-2xl`}>{page}</Button>
       <Modal
         isOpen={isOpen}
         onOpenChange={onOpenChange}

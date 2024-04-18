@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ReactFullpage from '@fullpage/react-fullpage';
 import StoryOfArda from "../ui/project/story-of-arda";
+import ApcSystem from "../ui/project/apc-system";
 
 const bebasNeue = Bebas_Neue({
   subsets: ['latin'],
@@ -97,7 +98,7 @@ export default function Projects() {
               <StoryOfArda></StoryOfArda>
             </div>
 
-            <div className="section bg-backgroundColor">2번 프로젝트</div>
+            <div className="section bg-backgroundColor"><ApcSystem></ApcSystem></div>
 
             <div className="section bg-backgroundColor">3번 프로젝트</div>
 
