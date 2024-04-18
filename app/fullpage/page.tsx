@@ -49,7 +49,7 @@ export default function FullPage() {
     }, 150);
 
     return () => clearInterval(interval);
-  }, [])
+  }, [idx])
 
 
 	return (
