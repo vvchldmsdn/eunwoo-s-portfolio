@@ -10,7 +10,7 @@ const bebasNeue = Bebas_Neue({
 });
 
 
-export default function () {
+export default function Skills() {
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [draggingIcon, setDraggingIcon] = useState<number>(0);
   const [mousePosition, setMousePosition] = useState<{ x: number, y: number }>({ x: 0, y: 0 });
