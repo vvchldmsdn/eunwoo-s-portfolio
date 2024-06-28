@@ -12,6 +12,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 import Link from "next/link";
+import MenuDropdown from "./ui/drop-down";
 
 const bebasNeue = Bebas_Neue({
   subsets: ['latin'],
@@ -82,7 +83,7 @@ export default function Home() {
 							<div className={`${bebasNeue.className} flex flex-col justify-between h-screen bg-backgroundColor p-10 xl:px-32`}>
 								<div className="flex justify-between items-center">
 									<div className="text-2xl">Frontend Portfolio of Eunwoo Choi</div>
-									<MenuIcon/>
+									<MenuDropdown currPage="Home"></MenuDropdown>
 								</div>
 								<div className="flex justify-center relative">
 									<div className={`${fastHand.className} absolute text-7xl text-homeRed`}>frontend</div>
@@ -99,6 +100,7 @@ export default function Home() {
 							</div>
 						</div>
 
+            {/* table of content */}
 						<div className="section bg-backgroundColor">
 							<div className={`${bebasNeue.className} flex flex-col justify-between items-center h-screen px-10 py-24 xl:px-32 max-h-[46rem]`}>
                 <div className="flex justify-center relative">
@@ -115,10 +117,39 @@ export default function Home() {
                   <div className="bg-homeGreen rounded-lg border-black border-2 flex items-center justify-center text-2xl text-backgroundColor">VISION MISSION</div>
                   {/* skills */}
                   <div className="bg-homeYellow rounded-lg border-black border-2 flex items-center justify-center text-2xl">PERSONAL SKILLS</div>
-                  {/* experience */}
-                  <div className="bg-homeYellow h-12 rounded-lg border-black border-2 flex items-center justify-center text-2xl">EDUCATION EXPERIENCE</div>
+                  {/* education */}
+                  <Popover
+                    className="inline-block" showArrow backdrop="opaque"
+                    classNames={{
+                      base: [
+                        // arrow color
+                        "before:bg-homeGreen"
+                      ],
+                      content: [
+                        "py-0 px-0 border-2 border-black",
+                        "bg-darkbg",
+                      ],
+                    }}
+                  >
+                    <PopoverTrigger>
+                      <div className="bg-homeYellow rounded-lg border-black border-2 flex items-center justify-center text-2xl cursor-pointer">Education</div>
+                    </PopoverTrigger>
+                    <PopoverContent>
+                      <Card  className={`py-4 w-[400px] bg-backgroundColor`}>
+                        <CardHeader>
+                          <p className={`${bebasNeue.className} text-3xl`}>list of educations</p>
+                        </CardHeader>
+                        <Divider/>
+                        <CardBody className="text-lg">
+                          <p className="mb-1/2">University: Yonsei Univ. 2015~2022</p>
+                          <p className="mb-2">Degree: Mathmatics Barchelors</p>
+                          <p className="mb-2">SSAFY: 2022.02~2022.12</p>
+                        </CardBody>
+                      </Card>
+                    </PopoverContent>
+                  </Popover>
                   {/* projects */}
-                  <div className="bg-homeRed rounded-lg border-black border-2 flex items-center justify-center text-2xl text-backgroundColor">
+                  <div className="bg-homeRed h-12 rounded-lg border-black border-2 flex items-center justify-center text-2xl text-backgroundColor">
                     <Link href='/projects' className="w-full text-center">PROJECTS</Link>
                   </div>
                   {/* contact */}
@@ -151,12 +182,11 @@ export default function Home() {
                       </Card>
                     </PopoverContent>
                   </Popover>
-                  {/* <div className="bg-homeGreen rounded-lg border-black border-2 flex items-center justify-center text-2xl text-backgroundColor">CONTACT</div> */}
                 </div>
               </div>
 						</div>
 
-            <div className="section">
+            {/* <div className="section">
               <Swiper
                 // install Swiper modules
                 modules={[Pagination]}
@@ -175,7 +205,7 @@ export default function Home() {
                 <SwiperSlide className="bg-backgroundColor">Slide 3</SwiperSlide>
                 <SwiperSlide className="bg-backgroundColor">Slide 4</SwiperSlide>
               </Swiper>
-            </div>
+            </div> */}
 
 					</ReactFullpage.Wrapper>
 				);

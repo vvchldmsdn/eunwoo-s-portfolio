@@ -181,6 +181,7 @@ export default function StoryOfArda() {
                 ></Image>
               </div>
             </div>
+            
             <div className="w-80 h-64 bg-darkbg flex-shrink-0 border-4 border-black rounded-xl"></div>
             <div className="w-80 h-64 bg-darkbg flex-shrink-0 border-4 border-black rounded-xl"></div>
             <div className="w-80 h-64 bg-darkbg flex-shrink-0 border-4 border-black rounded-xl"></div>
